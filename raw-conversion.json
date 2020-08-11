@@ -1,0 +1,47 @@
+{
+  InterledgerProtocol: {
+    DEFINITIONS: {
+      IMPORTS: {
+        FROM: [
+          { GenericTypes: [ ['UInt64' ['UInt256' ] },
+          { InterledgerTypes: [ ['Address' ['Timestamp' ] }
+        ]
+      },
+      InterledgerPrepare: {
+        SEQUENCE: [
+          [ ['amount' ['UInt64' ],
+          [ ['expiresAt' ['Timestamp' ],
+          [ ['executionCondition' ['UInt256' ],
+          [ ['destination' ['Address' ],
+          [
+            ['data'
+            [ ['OCTET STRING' { SIZE: { min: 0 max: 32767 } } ]
+          ]
+        ]
+      },
+      InterledgerFulfill: {
+        SEQUENCE: [
+          [ ['fulfillment' ['UInt256' ],
+          [
+            ['data'
+            [ ['OCTET STRING' { SIZE: { min: 0 max: 32767 } } ]
+          ]
+        ]
+      },
+      InterledgerReject: {
+        SEQUENCE: [
+          [ ['code' [ ['IA5String' { SIZE: 3 } ] ],
+          [ ['triggeredBy' ['Address' ],
+          [
+            ['message'
+            [ ['UTF8String' { SIZE: { min: 0 max: 8191 } } ]
+          ],
+          [
+            ['data'
+            [ ['OCTET STRING' { SIZE: { min: 0 max: 32767 } } ]
+          ]
+        ]
+      }
+    }
+  }
+}
